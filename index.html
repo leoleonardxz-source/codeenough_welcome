@@ -256,6 +256,21 @@
 			}
 			
 			/* 删掉之前的 .ce-logo 和 .brand-subtext 样式，因为现在用 SVG 绘图了 */
+			.nav .buy-btn {
+			    background: linear-gradient(135deg, #10b981, #1e40af);
+			    padding: 8px 20px;
+			    border-radius: 20px;
+			    font-size: 0.8rem; /* 稍微调小，显得精致 */
+			    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+			    border: 1px solid rgba(255, 255, 255, 0.2);
+			    margin-left: 25px;
+			}
+			
+			.nav .buy-btn:hover {
+			    transform: translateY(-3px) scale(1.05);
+			    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+			    color: #fff;
+			}
 		</style>
 	</head>
 	<body>
@@ -287,7 +302,7 @@
 
 		  </svg>
 		</div>
-		<nav class="nav"> <a href="#">HOME</a> <a href="#">TECH</a> <a href="#">VISION</a> </nav>
+		<nav class="nav"> <a href="#">TECH</a> <a href="#">VISION</a> <a href="mailto:leonard@codeenough.com?subject=Inquiry about codeenough.com" class="buy-btn">ACQUIRE</a> </nav>
 		<div class="container">
 			
 			
