@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>Codeenough | AI Redefines Coding</title>
+		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232d3436'/%3E%3Cpath d='M30 35l-15 15 15 15M70 35l15 15-15 15' stroke='white' stroke-width='8' fill='none'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%2300cec9'/%3E%3C/svg%3E">
+		<style>
+			:root {
+			  --deep-blue: #1e40af;   /* deep layer */
+			  --light-blue: #457dfd;  /* light layer */
+			  --card-bg: rgba(255, 255, 255, 0.82);
+			  --text-dark: #0f172a;
+			  --text-mid: #334155;
+			}
+			
+			/* ===== Reset & Layout ===== */
+			html, body {
+			  margin: 0;
+			  padding: 0;
+			  width: 100%;
+			  min-height: 100vh;
+			  overflow: hidden;
+			
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			
+			  /* 不要在这里设置背景色，否则会盖住你的背景层 */
+			  background: transparent;
+			}
+			
+			/* ===== Background (SVG Container) ===== */
+			.streamline-bg {
+			  position: fixed;
+			  inset: 0;
+			  z-index: -1;
+			  pointer-events: none;
+			  overflow: hidden;
+			}
+			
+			.streamline-bg svg {
+			  width: 100%;
+			  height: 100%;
+			  display: block;
+			}
+			
+			/* ===== Top Navigation ===== */
+			.nav {
+			  position: fixed;
+			  top: 40px;
+			  right: 60px;
+			  z-index: 9999;
+			
+			  display: flex;
+			  flex-direction: row;
+			  align-items: center;
+			}
+			
+			.nav a {
+			  color: #ffffff;
+			  margin-left: 35px;
+			  text-decoration: none;
+			  font-weight: 900;
+			  font-size: 1.1rem;
+			  text-transform: uppercase;
+			  letter-spacing: 1px;
+			  white-space: nowrap;
+			
+			  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+			  transition: transform 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+			}
+			
+			.nav a:hover {
+			  color: rgba(255, 255, 255, 0.92);
+			  transform: translateY(-2px);
+			  opacity: 0.98;
+			}
+			
+			/* ===== Center Card ===== */
+			.container {
+			  position: relative;
+			  z-index: 10;
+			
+			  background: var(--card-bg);
+			  backdrop-filter: blur(25px);
+			  -webkit-backdrop-filter: blur(25px);
+			
+			  padding: 60px 100px;
+			  border-radius: 50px;
+			  text-align: center;
+			
+			  max-width: 850px;
+			  width: min(850px, 86vw);
+			
+			  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.35);
+			  border: 1.5px solid rgba(255, 255, 255, 0.5);
+			}
+			
+			.logo-box {
+			  margin-bottom: 10px;
+			}
+			
+			.ce-logo {
+			  font-size: 5.5rem;
+			  font-weight: 900;
+			  margin: 0;
+			
+			  background: linear-gradient(135deg, var(--deep-blue), #10b981);
+			  -webkit-background-clip: text;
+			  background-clip: text;
+			  color: transparent;
+			}
+			
+			.brand-subtext {
+			  letter-spacing: 10px;
+			  opacity: 0.8;
+			  font-weight: 700;
+			  color: var(--text-mid);
+			  margin-top: -10px;
+			}
+			
+			h1 {
+			  font-size: 3.8rem;
+			  margin: 20px 0;
+			  color: var(--text-dark);
+			  letter-spacing: -3px;
+			}
+			
+			.tagline {
+			  font-size: 2rem;
+			  color: var(--deep-blue);
+			  font-weight: 800;
+			}
+			
+			.content-p {
+			  color: var(--text-mid);
+			  line-height: 1.7;
+			  font-size: 1.1rem;
+			}
+			
+			.highlight {
+			  color: var(--deep-blue);
+			  font-weight: 900;
+			}
+			
+			/* ===== Footer ===== */
+			.footer {
+			  position: fixed;
+			  left: 0;
+			  right: 0;
+			  bottom: 30px;
+			
+			  text-align: center;
+			  color: #ffffff;
+			  font-weight: 800;
+			  letter-spacing: 2px;
+			  z-index: 10;
+			
+			  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+			}
+			
+			/* ===== Responsive ===== */
+			@media (max-width: 900px) {
+			  .container {
+			    padding: 44px 34px;
+			    border-radius: 34px;
+			    width: min(780px, 90vw);
+			  }
+			
+			  h1 {
+			    font-size: 3rem;
+			    letter-spacing: -2px;
+			  }
+			
+			  .tagline {
+			    font-size: 1.6rem;
+			  }
+			
+			  .ce-logo {
+			    font-size: 4.2rem;
+			  }
+			
+			  .brand-subtext {
+			    letter-spacing: 8px;
+			  }
+			}
+			
+			@media (max-width: 520px) {
+			  .nav {
+			    top: 16px;
+			    right: 16px;
+			  }
+			
+			  .nav a {
+			    margin-left: 18px;
+			    font-size: 0.95rem;
+			  }
+			
+			  .container {
+			    padding: 34px 20px;
+			    border-radius: 26px;
+			  }
+			
+			  h1 {
+			    font-size: 2.25rem;
+			    letter-spacing: -1px;
+			  }
+			
+			  .tagline {
+			    font-size: 1.25rem;
+			  }
+			
+			  .content-p {
+			    font-size: 1rem;
+			  }
+			
+			  .brand-subtext {
+			    letter-spacing: 6px;
+			  }
+			
+			  .footer {
+			    bottom: 14px;
+			    font-size: 0.85rem;
+			  }
+			}
+			
+			/* ===== Accessibility: reduce motion ===== */
+			@media (prefers-reduced-motion: reduce) {
+			  /* 这里主要针对 SVG animate（SMIL），CSS 无法直接关掉。
+			     若需要彻底禁用动效，可在 HTML/JS 里检测后替换成静态 path。 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="streamline-bg" aria-hidden="true">
+		  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+		    <!-- 底层深蓝 -->
+		    <rect width="100" height="100" fill="#1e40af"></rect>
+		
+		    <!-- 顶层浅蓝：iOS风格流线切割（曲线更靠左） -->
+			<path fill="#457dfd"
+			  d="
+			    M100,0
+			    L20,0
+			    C34,16 36,34 30,50
+			    C22,66 24,86 36,100
+			    L100,100
+			    Z
+			  ">
+			  <animate attributeName="d"
+			           dur="8s"
+			           repeatCount="indefinite"
+			           calcMode="spline"
+			           keyTimes="0;1"
+			           keySplines="0.42 0 0.58 1"
+			           values="
+			             M100,0 L20,0 C34,16 36,34 30,50 C22,66 24,86 36,100 L100,100 Z;
+			             M100,0 L24,0 C38,18 34,36 32,52 C24,70 26,88 38,100 L100,100 Z
+			           " />
+			</path>
+
+		  </svg>
+		</div>
+
+		
+
+		
+		
+		<nav class="nav"> <a href="#">HOME</a> <a href="#">TECH</a> <a href="#">VISION</a> </nav>
+		<div class="container">
+			<div class="logo-box">
+				<h2 class="ce-logo">CE</h2>
+				<div class="brand-subtext">CODEENOUGH</div>
+			</div>
+			<h1>AI Redefines Coding.</h1>
+			<p class="tagline">代码至此，剩下的交给灵感。</p>
+			<div class="content-p">
+				<p>我们不产出堆砌的代码，我们只交付完美的实现。</p>
+				<p>利用生成式 AI 剥离 80% 的重复劳动。</p>
+				<p><span class="highlight">Codeenough Tech</span> 正在重塑开发版图。</p>
+			</div>
+		</div>
+		<div class="footer">© 2026 CODEENOUGH TECH. ALL RIGHTS RESERVED.</div>
+	</body>
+</html>
